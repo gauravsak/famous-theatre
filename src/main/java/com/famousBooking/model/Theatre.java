@@ -20,10 +20,9 @@ public class Theatre {
     private Map<String, BookingStat> bookingStatsRepository;
     private Set<Booking> bookingRepository;
 
-    @Autowired
-    public Theatre(Set<Booking> bookingRepository, Map<String, BookingStat> bookingStatsRepository) {
-        this.bookingRepository = bookingRepository;
-        this.bookingStatsRepository = bookingStatsRepository;
+    public Theatre() {
+        this.bookingRepository = new HashSet<>();
+        this.bookingStatsRepository = new HashMap<>();
     }
 
     public String bookTickets(Sms sms) {
@@ -84,7 +83,7 @@ public class Theatre {
         for (int i = 1; i <= bookingRequest.getNumberOfTickets(); i++) {
             seatNumbers.add(++numOfBookedTickets);
         }
-        updateBookingStats(bookingRequest.getDateTime(), numOfBookedTickets);
+        updateBookingStats(bookingRequest.getDateTime(), bookingRequest.getNumberOfTickets());
         return seatNumbers;
     }
 

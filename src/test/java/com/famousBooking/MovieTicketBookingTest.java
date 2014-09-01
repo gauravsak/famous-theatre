@@ -29,12 +29,7 @@ public class MovieTicketBookingTest {
         String message = "DT " + date + " " + time + " TKT " + numberOfTickets;
         Sms sms = new Sms(message, mobileNumber);
 
-        Set<Booking> bookingRepository = new HashSet<>();
-        Map<String, BookingStat> bookingStatsRepository = mock(HashMap.class);
-
-        when(bookingStatsRepository.get(date + " " + time)).thenReturn(new BookingStat(Theatre.MAX_CAPACITY));
-
-        Theatre theatre = new Theatre(bookingRepository, bookingStatsRepository);
+        Theatre theatre = new Theatre();
 
         //When
         String responseText = theatre.bookTickets(sms);
@@ -56,12 +51,7 @@ public class MovieTicketBookingTest {
         String message = "DT " + date + " " + time + " TKT " + numberOfTickets;
         Sms sms = new Sms(message, mobileNumber);
 
-        Set<Booking> bookingRepository = new HashSet<>();
-        Map<String, BookingStat> bookingStatsRepository = mock(HashMap.class);
-
-        when(bookingStatsRepository.get(date + " " + time)).thenReturn(new BookingStat(Theatre.MAX_CAPACITY));
-
-        Theatre theatre = new Theatre(bookingRepository, bookingStatsRepository);
+        Theatre theatre = new Theatre();
 
         //When
         String responseText = theatre.bookTickets(sms);
@@ -84,12 +74,7 @@ public class MovieTicketBookingTest {
         String message = "DT " + date + " " + time + " TKT " + numberOfTickets;
         Sms sms = new Sms(message, mobileNumber);
 
-        Set<Booking> bookingRepository = new HashSet<>();
-        Map<String, BookingStat> bookingStatsRepository = mock(HashMap.class);
-
-        when(bookingStatsRepository.get(date + " " + time)).thenReturn(BookingStat.empty());
-
-        Theatre theatre = new Theatre(bookingRepository, bookingStatsRepository);
+        Theatre theatre = new Theatre();
 
         String responseText = theatre.bookTickets(sms);
 
@@ -99,8 +84,6 @@ public class MovieTicketBookingTest {
         numberOfTickets = Theatre.MAX_CAPACITY - 9; // 10 seats have already been booked. So, next booking request can have a max. of (Theatre.MAX_CAPACITY - 10) tickets
         message = "DT " + date + " " + time + " TKT " + numberOfTickets;
         sms = new Sms(message, mobileNumber);
-
-        when(bookingStatsRepository.get(date + " " + time)).thenReturn(new BookingStat(Theatre.MAX_CAPACITY - 10));
 
         //When
         responseText = theatre.bookTickets(sms);
