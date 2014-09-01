@@ -1,19 +1,26 @@
 package com.famousBooking.model;
 
 import com.famousBooking.exception.SeatsNotAvailableException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.*;
 
 /**
  * Created by gsakhardande on 28/8/14.
  */
+@Service
 public class Theatre {
 
     public static final int MAX_CAPACITY = 50;
 
     private Map<String, BookingStat> bookingStatsRepository;
-    Set<Booking> bookingRepository;
+    private Set<Booking> bookingRepository;
 
+    @Autowired
     public Theatre(Set<Booking> bookingRepository, Map<String, BookingStat> bookingStatsRepository) {
         this.bookingRepository = bookingRepository;
         this.bookingStatsRepository = bookingStatsRepository;
