@@ -5,17 +5,18 @@ package com.famousBooking.model;
  */
 public class Sms {
     private final String text;
-    private final int source;
-    private final int target;
+    private final long sourceMobileNumber;
 
-    public Sms(String text, int source, int target) {
-
+    public Sms(String text, long sourceMobileNumber) {
         this.text = text;
-        this.source = source;
-        this.target = target;
+        this.sourceMobileNumber = sourceMobileNumber;
     }
 
     public String getText() {
         return text;
+    }
+
+    public long getSourceMobileNumber() {
+        return sourceMobileNumber;
     }
 }
