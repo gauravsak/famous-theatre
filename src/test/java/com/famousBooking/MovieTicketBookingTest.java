@@ -32,7 +32,7 @@ public class MovieTicketBookingTest {
         Set<Booking> bookingRepository = new HashSet<>();
         Map<String, BookingStat> bookingStatsRepository = mock(HashMap.class);
 
-        when(bookingStatsRepository.get(time)).thenReturn(new BookingStat(Theatre.MAX_CAPACITY));
+        when(bookingStatsRepository.get(date + " " + time)).thenReturn(new BookingStat(Theatre.MAX_CAPACITY));
 
         Theatre theatre = new Theatre(bookingRepository, bookingStatsRepository);
 
@@ -59,7 +59,7 @@ public class MovieTicketBookingTest {
         Set<Booking> bookingRepository = new HashSet<>();
         Map<String, BookingStat> bookingStatsRepository = mock(HashMap.class);
 
-        when(bookingStatsRepository.get(time)).thenReturn(new BookingStat(Theatre.MAX_CAPACITY));
+        when(bookingStatsRepository.get(date + " " + time)).thenReturn(new BookingStat(Theatre.MAX_CAPACITY));
 
         Theatre theatre = new Theatre(bookingRepository, bookingStatsRepository);
 
@@ -87,7 +87,7 @@ public class MovieTicketBookingTest {
         Set<Booking> bookingRepository = new HashSet<>();
         Map<String, BookingStat> bookingStatsRepository = mock(HashMap.class);
 
-        when(bookingStatsRepository.get(time)).thenReturn(BookingStat.empty());
+        when(bookingStatsRepository.get(date + " " + time)).thenReturn(BookingStat.empty());
 
         Theatre theatre = new Theatre(bookingRepository, bookingStatsRepository);
 
@@ -100,7 +100,7 @@ public class MovieTicketBookingTest {
         message = "DT " + date + " " + time + " TKT " + numberOfTickets;
         sms = new Sms(message, mobileNumber);
 
-        when(bookingStatsRepository.get(time)).thenReturn(new BookingStat(Theatre.MAX_CAPACITY - 10));
+        when(bookingStatsRepository.get(date + " " + time)).thenReturn(new BookingStat(Theatre.MAX_CAPACITY - 10));
 
         //When
         responseText = theatre.bookTickets(sms);
