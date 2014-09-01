@@ -6,6 +6,7 @@
 
     <groupId>groupId</groupId>
     <artifactId>famous-booking</artifactId>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <build>
@@ -19,6 +20,11 @@
                     <source>1.7</source>
                     <target>1.7</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.0</version>
             </plugin>
         </plugins>
     </build>
