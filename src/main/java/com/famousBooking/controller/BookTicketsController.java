@@ -21,7 +21,7 @@ public class BookTicketsController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String book(ModelMap model, @RequestParam("sms") String text, @RequestParam("mobile") String mobileNumber) {
-        model.addAttribute("responseText", smsService.sendSms(text, Integer.parseInt(mobileNumber)));
+        model.addAttribute("responseText", smsService.sendSms(text, Long.parseLong(mobileNumber)));
         return "result";
     }
 
