@@ -14,6 +14,13 @@ public class BookingRequest {
         this.mobileNumber = mobileNumber;
     }
 
+    public BookingRequest(String dateTime, int numberOfTickets, long mobileNumber) {
+
+        this.dateTime = dateTime;
+        this.numberOfTickets = numberOfTickets;
+        this.mobileNumber = mobileNumber;
+    }
+
     public String getDateTime() {
         return dateTime;
     }
