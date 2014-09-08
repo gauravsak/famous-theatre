@@ -1,7 +1,5 @@
 import com.famousBooking.model.Theatre;
 import com.famousBooking.page.HomePage;
-import com.famousBooking.page.ResultPage;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -27,7 +25,7 @@ public class MovieTicketBookingSteps {
     int numberOfTickets = 2;
 
     String validBookingSms = "DT " + date + " " + time + " TKT " + numberOfTickets;
-    String smsWithMaxCapacityPlus1Seats = "DT " + date + " " + time + " TKT " + (Theatre.MAX_CAPACITY + 1);
+    String smsWithMaxCapacityPlus1Seats = "DT " + date + " " + time + " TKT " + (Theatre.CAPACITY + 1);
     String smsWithAvailablePlus1SeatsAfterBooking2 = "DT " + date + " " + time + " TKT " + 49;
     String mobileNumber = "9552027729";
     List<Integer> seatNumbers12 = Arrays.asList(1, 2);
@@ -59,7 +57,7 @@ public class MovieTicketBookingSteps {
 
     @Then("^User should see ticket booking unsuccessful with max capacity exceed error$")
     public void User_should_see_ticket_booking_unsuccessful_with_max_capacity_exceed_error() {
-        driver.getPageSource().contains("Sorry! Theatre capacity is " + Theatre.MAX_CAPACITY + " at the moment. Of course, We want our audience to feel among the privileged!!");
+        driver.getPageSource().contains("Sorry! Theatre capacity is " + Theatre.CAPACITY + " at the moment. Of course, We want our audience to feel among the privileged!!");
     }
 
     @Then("^User should see ticket booking unsuccessful with available seats exceed error$")
