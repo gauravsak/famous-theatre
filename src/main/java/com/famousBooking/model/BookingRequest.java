@@ -15,7 +15,6 @@ public class BookingRequest {
     }
 
     public BookingRequest(String dateTime, int numberOfTickets, long mobileNumber) {
-
         this.dateTime = dateTime;
         this.numberOfTickets = numberOfTickets;
         this.mobileNumber = mobileNumber;
