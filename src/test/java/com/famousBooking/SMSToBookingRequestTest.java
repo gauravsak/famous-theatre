@@ -2,7 +2,7 @@ package com.famousBooking;
 
 import com.famousBooking.exception.BookingSMSFormatException;
 import com.famousBooking.model.BookingRequest;
-import com.famousBooking.model.Sms;
+import com.famousBooking.model.SMS;
 import com.famousBooking.model.Theatre;
 import com.famousBooking.model.BookingSMS;
 import com.famousBooking.util.BookingSMSFormatValidator;
@@ -25,7 +25,7 @@ public class SMSToBookingRequestTest {
 
         // Given
         String message = "DT " + date + " " + time + " TKT " + numberOfTickets;
-        Sms sms = new Sms(message, mobileNumber);
+        SMS sms = new SMS(message, mobileNumber);
         BookingSMSFormatValidator validator = new BookingSMSFormatValidator(Theatre.BOOKING_SMS_FORMAT);
 
         BookingSMS bookingSMS = new BookingSMS(sms, validator);
@@ -45,7 +45,7 @@ public class SMSToBookingRequestTest {
 
         // Given
         String message = "qwerty";
-        Sms sms = new Sms(message, mobileNumber);
+        SMS sms = new SMS(message, mobileNumber);
         BookingSMSFormatValidator validator = new BookingSMSFormatValidator(Theatre.BOOKING_SMS_FORMAT);
 
 

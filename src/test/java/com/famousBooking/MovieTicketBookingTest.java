@@ -1,7 +1,7 @@
 package com.famousBooking;
 
 import com.famousBooking.model.Booking;
-import com.famousBooking.model.Sms;
+import com.famousBooking.model.SMS;
 import com.famousBooking.model.Theatre;
 import com.famousBooking.model.BookingSMS;
 import com.famousBooking.util.BookingSMSFormatValidator;
@@ -29,7 +29,7 @@ public class MovieTicketBookingTest {
 
         // Given
         String message = "DT " + date + " " + time + " TKT " + numberOfTickets;
-        Sms sms = new Sms(message, mobileNumber);
+        SMS sms = new SMS(message, mobileNumber);
 
         Set<Booking> bookingRepository = Collections.emptySet();
         Map<String, Integer> bookingStatsRepository = Collections.emptyMap();

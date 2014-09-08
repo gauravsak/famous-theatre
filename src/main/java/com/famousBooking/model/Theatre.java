@@ -1,9 +1,5 @@
 package com.famousBooking.model;
 
-import com.famousBooking.exception.SeatsNotAvailableException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.*;
 
 /**
@@ -24,7 +20,7 @@ public class Theatre {
         this.bookingStatsRepository = bookingStatsRepository;
     }
 
-//    public String bookTickets(Sms sms) {
+//    public String bookTickets(SMS sms) {
 //        Booking booking = null;
 //        try {
 //            BookingRequest bookingRequest = processSms(sms);
@@ -43,7 +39,7 @@ public class Theatre {
 //        return "See you at " + booking.getDateTime() + ". Your allocated seats are " + booking.getSeatNumbers() + ".";
 //    }
 
-    private BookingRequest processSms(Sms sms) {
+    private BookingRequest processSms(SMS sms) {
         String[] tokens = sms.getText().split("\\s+");
         String date = tokens[1];
         String time = tokens[2];

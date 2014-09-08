@@ -1,8 +1,6 @@
 package com.famousBooking.service;
 
-import com.famousBooking.model.Sms;
 import com.famousBooking.model.Theatre;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,7 +14,7 @@ public class FamousSmsService implements SmsService {
 
     @Override
     public String sendSms(String text, long sourceMobileNumber) {
-//        return theatre.bookTickets(new Sms(text, sourceMobileNumber));
+//        return theatre.bookTickets(new SMS(text, sourceMobileNumber));
         return null;
     }
 }

@@ -7,9 +7,9 @@ import com.famousBooking.util.BookingSMSFormatValidator;
  */
 public class BookingSMS {
 
-    private Sms sms;
+    private SMS sms;
 
-    public BookingSMS(Sms sms, BookingSMSFormatValidator validator) {
+    public BookingSMS(SMS sms, BookingSMSFormatValidator validator) {
         validator.validate(sms.getText());
         this.sms = sms;
     }
